@@ -40,6 +40,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
                   id="name"
                   name="name"
                   aria-describedby="emailHelp"
+                  Required
                 />
               </div>
               <div class="mb-3">
@@ -51,6 +52,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
                   id="phonenum"
                   name="phonenum"
                   aria-describedby="emailHelp"
+                  Required
                 />
               </div>
               <div class="mb-3">
@@ -59,10 +61,10 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
                 >
                 <select
                   class="form-select"
-                  aria-label="Default 
-select example"
+                  aria-label="Default select example"
                   name="membership"
                   id="membership"
+                  Required
                 >
                   <option value="Reguler">Reguler</option>
                   <option value="Platinum">Platinum</option>
@@ -76,6 +78,7 @@ select example"
                   id="email"
                   name="email"
                   aria-describedby="emailHelp"
+                  Required
                 />
               </div>
               <div class="mb-3">
@@ -87,6 +90,7 @@ select example"
                   class="form-control"
                   id="password"
                   name="password"
+                  Required
                 />
               </div>
               <div class="d-grid gap-2">

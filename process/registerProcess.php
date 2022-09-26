@@ -10,16 +10,30 @@
         $name = $_POST['name'];
         $phonenum = $_POST['phonenum'];
         $membership = $_POST['membership'];
-        // Melakukan insert ke databse dengan query dibawah ini
-        $query = mysqli_query($con,"INSERT INTO users(email, password, name, phonenum, membership) VALUES ('$email', '$password','$name', '$phonenum', '$membership')") or die(mysqli_error($con)); 
-        // perintah mysql yang gagal dijalankan ditangani oleh perintah “or die”
-        if($query){
-            echo '<script> alert("Register Success"); window.location = "../index.php" </script>';
+
+        $queryPhone = mysqli_query($con, "SELECT * FROM users WHERE phonenum = '$phonenum'") or die(mysqli_error($con));
+
+        $queryEmail = mysqli_query($con, "SELECT * FROM users WHERE email = '$email'") or die(mysqli_error($con));        
+            
+        if(mysqli_num_rows($queryPhone) == 0 && mysqli_num_rows($queryEmail) == 0){
+            // Melakukan insert ke databse dengan query dibawah ini
+            $query = mysqli_query($con,"INSERT INTO users(email, password, name, phonenum, membership) VALUES ('$email', '$password','$name', '$phonenum', '$membership')") or die(mysqli_error($con)); 
+            // perintah mysql yang gagal dijalankan ditangani oleh perintah “or die”
+            if($query){
+                echo '<script> alert("Register Success"); window.location = "../index.php" </script>';
+            }else{
+                echo '<script> alert("Register Failed"); </script>';
+            }
         }else{
-            echo '<script> alert("Register Failed"); </script>';
+            if(mysqli_num_rows($queryPhone) != 0){
+                echo '<script> alert("Nomor Telepeon Sudah Terdaftar"); </script>';
+            }
+            if(mysqli_num_rows($queryEmail) != 0){
+                echo '<script> alert("Email sudah Terdaftar"); </script>';
+            }
+            echo'<script> window.history.back()</script>';
         }
     }else{
-        echo
-        '<script> window.history.back()</script>';
+        echo'<script> window.history.back()</script>';
     }
 ?>

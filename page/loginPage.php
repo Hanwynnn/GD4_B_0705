@@ -58,7 +58,7 @@
               </div>
             </form>
             <p class="mt-2 mb-0">
-              Don’t have an account yet?
+              Don't have an account yet?
               <a href="./registerPage.php" class="textprimary">Click here!</a>
             </p>
           </div>
