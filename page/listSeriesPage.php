@@ -4,8 +4,8 @@
 
 <div class="container p-3 m-4 h-100" style="background-color: #FFFFFF; border-top: 5px solid #D40013; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
     <div class="body d-flex justify-content-between">
-        <h4>LIST MOVIE</h4> 
-        <a href="../page/addMoviePage.php"><i class="fa fa-plus" aria-hidden="true" style="color: #D40013;"></i></a>
+        <h4>LIST SERIES</h4> 
+        <a href="../page/addSeriesPage.php"><i class="fa fa-plus fa-2x" aria-hidden="true" style="color: #D40013;"></i></a>
     </div>
     <hr>
     <table class="table ">
@@ -15,13 +15,14 @@
                 <th scope="col">Name</th>
                 <th scope="col">Genre</th>
                 <th scope="col">Realese</th>
+                <th scope="col">Episode</th>
                 <th scope="col">Season</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
     <?php
-    $query = mysqli_query($con, "SELECT * FROM movies") or
+    $query = mysqli_query($con, "SELECT * FROM series") or
     die(mysqli_error($con));
     if (mysqli_num_rows($query) == 0) {
         echo '<tr> <td colspan="7"> Tidak ada data </td> </tr>';
@@ -33,10 +34,13 @@
             <th scope="row">'.$no.'</th>
             <td>'.$data['name'].'</td>
             <td>'.$data['genre'].'</td>
-            <td>'.$data['yearRelease'].'</td>
+            <td>'.$data['realease'].'</td>
+            <td>'.$data['episode'].'</td>
             <td>'.$data['season'].'</td>
             <td>
-            <a href="../process/deleteMovieProcess.php?id='.$data['id'].'"onClick="return confirm ( \'Are you sure want to delete this data?\')"> <i style="color: red" class="fa fa-trash fa-2x"></i>
+            <a href="../page/editSeriesPage.php?id='.$data['id'].'">  <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true" style="color: green" ></i>
+
+            <a href="../process/deleteSeriesProcess.php?id='.$data['id'].'" onClick="return confirm ( \'Are you sure want to delete this data?\')"> <i style="color: red" class="fa fa-trash fa-2x"></i>
             </a>
             </td>
             </tr>';
